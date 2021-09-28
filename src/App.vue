@@ -2,6 +2,7 @@
   <div id="app">
     <h2>{{emailGen}}</h2>
     <!-- <h3>{{getEmail()}}</h3> -->
+    <h2>LISTA EMAILS</h2>
     <ul v-if="listEmail.length >= 10">
       <li v-for="(element, index) in listEmail" :key="index">
         <!-- <p>{{element}}</p> -->
@@ -54,40 +55,74 @@ export default {
 
   mounted() { 
     // const self = this;
-    // // let i = 0;
+    // let i = 0;
 
-    // while (this.listEmail.length < 2)
-    // {
-      axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-      .then((response) => {
-
-        console.log(response.data.response);
+        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+          this.listEmail.push(response.data.response);
+        });
+        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+          this.listEmail.push(response.data.response);
+        });
+        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+          this.listEmail.push(response.data.response);
+        });axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+          this.listEmail.push(response.data.response);
+        });axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+          this.listEmail.push(response.data.response);
+        });axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+          this.listEmail.push(response.data.response);
+        });axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+          this.listEmail.push(response.data.response);
+        });axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+          this.listEmail.push(response.data.response);
+        });axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+          this.listEmail.push(response.data.response);
+        });axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+          this.listEmail.push(response.data.response);
+        });
         
-        this.listEmail.push(response.data.response)
-        console.log(this.listEmail.length);
+      // while (this.listEmail.length < 10)
+      // {
+
+        // i++;
+      // }
+      // axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+      // .then((response) => {
+
+      //   this.listEmail.push(response.data.response);       
+      //   console.log(this.listEmail);
+      //   console.log(this.listEmail.length);
+
+      //   this.listEmail.push(response.data.response);       
+      //   console.log(this.listEmail);
+      //   console.log(this.listEmail.length);
+
+      //   this.listEmail.push(response.data.response);       
+      //   console.log(this.listEmail);
+      //   console.log(this.listEmail.length);
+
+      // })
 
 
-        console.log(this.listEmail);
-        
-        this.listEmail.push(response.data.response);
-        console.log(this.listEmail.length);
+// while (i < 10)
+      // {
+      //   console.log('ciao');
+      //   console.log(axios);
+      //   console.log(this.listEmail);
+      //   i++;
+      // }
+    },
 
-
-        console.log(this.listEmail);
-
-        this.listEmail.push(response.data.response);
-        
-        console.log(this.listEmail);
-        console.log(this.listEmail.length);
-
-
-
-      })
-    }
-    // console.log('ciao');
-    // console.log(axios);
-    // console.log(self.listEmail);
-  // },
 }
 </script>
 
