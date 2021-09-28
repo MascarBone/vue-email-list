@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <ul>
+    <h2>{{emailGen}}</h2>
+    <!-- <h3>{{getEmail()}}</h3> -->
+    <ul v-if="listEmail.length >= 10">
       <li v-for="(element, index) in listEmail" :key="index">
-        <p>{{element}}</p>
+        <!-- <p>{{element}}</p> -->
+        <Email :email="element"/>
       </li>
     </ul>
   </div>
@@ -11,43 +14,80 @@
 <script>
 import axios from 'axios'
 
+import Email from './components/emails'
+
 export default {
   name: 'App',
-
   data: function() {
     return {
       listEmail: [],
+      emailGen: '',
     }
   },
 
   components: {
+    Email,
   },
 
+  // methods: {
+  //   getEmail() {
+
+
+  //     axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+  //       .then((response) => {
+  //         this.emailGen = response.data.response;
+  //         console.log(this.emailGen);
+  //         this.listEmail.push(response.data.response);
+  //         console.log(this.listEmail);
+  //       });
+  //     // while (this.listEmail.length < 10)
+  //     // {
+        
+  //     //   axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+  //     //   .then((response) => {
+  //     //     this.listEmail.push(response.data.response);
+  //     //     console.log(this.listEmail);
+  //     //   });
+  //     // }
+  //   }
+  // },
 
   mounted() { 
-    const self = this;
-    let i = 0;
+    // const self = this;
+    // // let i = 0;
 
-    while (self.listEmail.length < 2 && i < 10)
-    {
+    // while (this.listEmail.length < 2)
+    // {
       axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-      .then(function(response) {
+      .then((response) => {
 
         console.log(response.data.response);
         
-        self.listEmail.push(response.data.response)
+        this.listEmail.push(response.data.response)
+        console.log(this.listEmail.length);
 
-        console.log(self.listEmail);
+
+        console.log(this.listEmail);
+        
+        this.listEmail.push(response.data.response);
+        console.log(this.listEmail.length);
+
+
+        console.log(this.listEmail);
+
+        this.listEmail.push(response.data.response);
+        
+        console.log(this.listEmail);
+        console.log(this.listEmail.length);
+
 
 
       })
-      
-      i++;
     }
     // console.log('ciao');
     // console.log(axios);
-    console.log(self.listEmail);
-  },
+    // console.log(self.listEmail);
+  // },
 }
 </script>
 
